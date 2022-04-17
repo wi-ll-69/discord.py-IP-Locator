@@ -30,7 +30,7 @@ async def on_message(message):
       return
     g = geocoder.ip(ip)
     address = g.latlng
-    if address != None:
+    if len(address) > 0:
       map = folium.Map(location=address, zoom_start=20)
       folium.Marker(location=address).add_to(map)
       map.save('map.html')
